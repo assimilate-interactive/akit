@@ -1,1 +1,1 @@
-# akit-frame
+# assimilate kit
