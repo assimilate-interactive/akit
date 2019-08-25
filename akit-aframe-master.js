@@ -76253,6 +76253,10 @@ module.exports.AScene = registerElement('a-scene', {
   prototype: Object.create(AEntity.prototype, {
     createdCallback: {
       value: function () {
+
+          console.log('a-scene-init')
+
+          
         this.clock = new THREE.Clock();
         this.isIOS = isIOS;
         this.isMobile = isMobile;
@@ -76279,6 +76283,8 @@ module.exports.AScene = registerElement('a-scene', {
         this.setAttribute('keyboard-shortcuts', '');
         this.setAttribute('screenshot', '');
         this.setAttribute('vr-mode-ui', '');
+
+
       }
     },
 
