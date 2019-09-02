@@ -5267,13 +5267,21 @@
           //    console.log('resize ctl',this.properties.context.arController.canvas)
           this.properties.arsource.copyElementSizeTo(this.properties.context.arController.canvas);
         }
+      } else {
+        APP.renderer.domElement.style.height = this.properties.arsource.domElement.style.height;
+        APP.renderer.domElement.style.width = parseInt(this.properties.arsource.domElement.style.height) * 4 / 3 + 'px';
+
+        if (this.properties.context.arController !== null) {
+          this.properties.context.arController.canvas.style.height = this.properties.arsource.domElement.style.height;
+          this.properties.context.arController.canvas.style.width = parseInt(this.properties.arsource.domElement.style.height) * 4 / 3 + 'px';
+        }
       }
 
       if (this.properties.context.arController !== null) {
         AKIT.scene.camera.projectionMatrix.copy(this.properties.context.getProjectionMatrix());
-      } //    console.log('resize 1', APP.renderer.domElement,AKIT.canvas,  this.properties.context.arController.canvas, AKIT.canvas.height, AKIT.canvas.width);
-      // console.log('resize1',APP.renderer,APP.renderer.domElement.width,APP.renderer.domElement.style)
+      }
 
+      console.log('resize 1', APP.renderer.domElement, AKIT.canvas, this.properties.context.arController.canvas, AKIT.canvas.height, AKIT.canvas.width); // console.log('resize1',APP.renderer,APP.renderer.domElement.width,APP.renderer.domElement.style)
     }
 
     isReady() {
